@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dollar Data Context Guard</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="hero">
+        <div class="brand"><span class="brand-mark">$</span><span>Dollar</span></div>
+        <div class="mode" id="mode">Loading catalog…</div>
+      </header>
+
+      <section class="intro">
+        <p class="eyebrow">DATAHUB-POWERED AGENT SAFETY</p>
+        <h1>Understand the data blast radius <em>before</em> an agent changes it.</h1>
+        <p class="lede">Dollar Data Context Guard asks DataHub for the asset’s ownership, schema, classifications, and downstream lineage. Local deterministic policy—not an LLM—decides whether to allow, review, or block.</p>
+      </section>
+
+      <section class="scenario-panel" aria-labelledby="scenario-title">
+        <div>
+          <p class="eyebrow" id="scenario-title">DEMO SCENARIOS</p>
+          <div class="scenario-buttons" id="scenarios"></div>
+        </div>
+        <button class="analyze" id="analyze">Analyze intent <span>→</span></button>
+      </section>
+
+      <section class="empty-state" id="empty-state">
+        <div class="orbit"><span>$</span></div>
+        <h2>Select a scenario to inspect real metadata context.</h2>
+        <p>Demo mode uses a clearly labelled synthetic retail catalog. Configure the official DataHub MCP server for a live catalog.</p>
+      </section>
+
+      <section class="results hidden" id="results" aria-live="polite">
+        <article class="verdict" id="verdict"></article>
+        <article class="card context-card">
+          <p class="eyebrow">WHAT DATAHUB RESOLVED</p>
+          <h2 id="asset-name"></h2>
+          <div class="metadata" id="metadata"></div>
+          <div class="section-title">Affected field contract</div>
+          <div class="fields" id="fields"></div>
+          <div class="section-title">Downstream blast radius</div>
+          <div class="lineage" id="lineage"></div>
+        </article>
+        <article class="card flow-card">
+          <p class="eyebrow">REPRODUCIBLE CONTEXT FLOW</p>
+          <ol>
+            <li><span>01</span><div><strong>Search</strong><small>Resolve the requested asset in DataHub.</small></div></li>
+            <li><span>02</span><div><strong>Inspect</strong><small>Read ownership, tags and schema fields.</small></div></li>
+            <li><span>03</span><div><strong>Trace</strong><small>Fetch up to three lineage hops downstream.</small></div></li>
+            <li><span>04</span><div><strong>Decide locally</strong><small>Apply a deterministic safety policy.</small></div></li>
+          </ol>
+          <p class="privacy"><strong>Privacy boundary:</strong> source files, API keys, secret values, and full agent transcripts are never sent to DataHub.</p>
+        </article>
+      </section>
+    </main>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
+

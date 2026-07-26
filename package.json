@@ -1,0 +1,19 @@
+{
+  "name": "dollar-data-context-guard",
+  "version": "0.1.0",
+  "private": true,
+  "description": "DataHub MCP-powered context guard for high-impact agent changes.",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "demo": "node src/web-server.mjs",
+    "analyze": "node src/cli.mjs --scenario destructive-customer-email",
+    "inspect:mcp": "node src/cli.mjs --inspect-mcp",
+    "test": "node --test",
+    "check": "node --check src/cli.mjs && node --check src/web-server.mjs && node --check src/guard-service.mjs && node --check src/mcp/mcp-datahub-client.mjs"
+  },
+  "license": "Apache-2.0"
+}
+

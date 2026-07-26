@@ -1,0 +1,8 @@
+{
+  "assetQuery": "commerce.customer_profile",
+  "environment": "PROD",
+  "operation": "Drop the email column from the customer profile dataset",
+  "fields": ["email"],
+  "requestedBy": "coding-agent",
+  "rationale": "The downstream CRM export no longer needs it."
+}
