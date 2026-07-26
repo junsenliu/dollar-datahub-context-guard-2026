@@ -49,8 +49,8 @@ function entityFromPayload(payload, urn) {
  */
 export class McpDataHubClient {
   constructor({ command, args, env = process.env, allowWriteBack = false } = {}) {
-    const defaultCommand = process.platform === 'win32' ? 'npx.cmd' : 'npx';
-    const parsedArgs = args ?? JSON.parse(env.DATAHUB_MCP_ARGS ?? '["-y","@acryldata/mcp-server-datahub"]');
+    const defaultCommand = process.platform === 'win32' ? 'uvx.exe' : 'uvx';
+    const parsedArgs = args ?? JSON.parse(env.DATAHUB_MCP_ARGS ?? '["mcp-server-datahub@latest"]');
     this.rpc = new McpStdioClient({ command: command ?? env.DATAHUB_MCP_COMMAND ?? defaultCommand, args: parsedArgs, env });
     this.allowWriteBack = allowWriteBack;
     this.mode = 'mcp';

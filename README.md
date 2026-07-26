@@ -64,7 +64,7 @@ DCG contains a dependency-free JSON-RPC stdio client in [`src/mcp/mcp-stdio-clie
 The official DataHub MCP server documents these tools and its metadata/lineage purpose at [acryldata/mcp-server-datahub](https://github.com/acryldata/mcp-server-datahub). The package is launched by default with the officially documented command pattern:
 
 ```powershell
-npx -y @acryldata/mcp-server-datahub
+uvx mcp-server-datahub@latest
 ```
 
 ### Connect a real DataHub environment
@@ -75,8 +75,8 @@ The demo intentionally defaults to `fixture` mode. To use a real catalog, config
 $env:DCG_MODE = 'mcp'
 $env:DATAHUB_GMS_URL = 'http://localhost:8080'
 $env:DATAHUB_GMS_TOKEN = '<your-local-token>'
-$env:DATAHUB_MCP_COMMAND = 'npx.cmd'
-$env:DATAHUB_MCP_ARGS = '["-y","@acryldata/mcp-server-datahub"]'
+$env:DATAHUB_MCP_COMMAND = 'uvx.exe'
+$env:DATAHUB_MCP_ARGS = '["mcp-server-datahub@latest"]'
 npm.cmd run inspect:mcp -- --mcp
 npm.cmd run demo
 ```

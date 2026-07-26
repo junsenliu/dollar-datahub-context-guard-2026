@@ -60,13 +60,19 @@ export class McpStdioClient {
 
   request(method, params) {
     const id = this.nextId++;
-    this.#send({ jsonrpc: '2.0', id, method, params });
     return new Promise((resolve, reject) => {
       const timer = setTimeout(() => {
         this.pending.delete(id);
         reject(new Error(`Timed out waiting for DataHub MCP ${method}. ${this.stderr}`));
       }, this.timeoutMs);
       this.pending.set(id, { resolve, reject, timer });
+      try {
+        this.#send({ jsonrpc: '2.0', id, method, params });
+      } catch (error) {
+        this.pending.delete(id);
+        clearTimeout(timer);
+        reject(error);
+      }
     });
   }
 
