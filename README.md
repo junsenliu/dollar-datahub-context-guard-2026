@@ -24,9 +24,11 @@ DCG supplies that missing organizational context before a change is allowed to p
 
 ## Three-minute judge path
 
+### Fast fixture path
+
 ```powershell
-git clone <PUBLIC_REPOSITORY_URL>
-Set-Location dollar-datahub-context-guard
+git clone https://github.com/junsenliu/dollar-datahub-context-guard-2026.git
+Set-Location dollar-datahub-context-guard-2026
 npm.cmd test
 npm.cmd run demo
 ```
@@ -34,6 +36,10 @@ npm.cmd run demo
 Open `http://127.0.0.1:4310`, keep **Drop the production email field** selected, then click **Analyze intent**.
 
 Expected result: `EXTREME · block pending owner approval` because the synthetic `commerce.customer_profile` asset is PII-tagged, production-scoped, and has three downstream dependents.
+
+### Verified live DataHub MCP path
+
+For a real self-hosted DataHub Core catalog through the official MCP server, follow [`LIVE_WEB_DEMO.md`](LIVE_WEB_DEMO.md). The tested runtime, tool list, synthetic catalog evidence, and expected three-hop result are recorded in [`LIVE_VERIFICATION_2026-07-31.md`](LIVE_VERIFICATION_2026-07-31.md).
 
 ## Architecture
 
